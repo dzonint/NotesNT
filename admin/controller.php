@@ -50,7 +50,7 @@
             $response=array('status_code' => 0, 'status_message' => 'OK.');
         }
         else
-            $response=array('status_code' => 3, 'status_message' => 'An error during account creation occured.');
+            $response=array('status_code' => 3, 'status_message' => 'An error during account creation occurred.');
         echo json_encode($response);
     }
 
@@ -90,7 +90,7 @@
             $response=array('status_code' => 0, 'status_message' => 'OK.');
         }
         else
-            $response=array('status_code' => 5, 'status_message' => 'An error during note creation occured.');
+            $response=array('status_code' => 5, 'status_message' => 'An error during note creation occurred.');
         echo json_encode($response);
     }
 
@@ -147,7 +147,7 @@
             $response=array('status_code' => 0, 'status_message' => 'OK.');
         }
         else
-            $response=array('status_code' => 6, 'status_message' => 'An error occured while attempting to log out.');
+            $response=array('status_code' => 6, 'status_message' => 'An error while attempting to log out occurred.');
         echo json_encode($response);
     }
 ?>
