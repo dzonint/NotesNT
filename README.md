@@ -19,3 +19,6 @@ Status codes :
 + 7 - No results found.
 + 8 - User is not logged in.
 + 9 - An error while attempting to log out occured.
+
+<img src="https://dzonint.github.io/img/portfolio/notesnt_1.png" width="300"></img>
+<img src="https://dzonint.github.io/img/portfolio/notesnt_2.png" width="300"></img>
