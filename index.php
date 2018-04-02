@@ -54,7 +54,7 @@
 								</form>
                                 
                                 <!-- Register form. -->
-								<form id="register-form" action="admin/controller.php" method="post" role="form" style="display: none;">
+								<form id="register-form" action="admin/engine.php" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="username" id="reg-username" tabindex="1" class="form-control" placeholder="Username" value="" required>
 									</div>
@@ -117,7 +117,7 @@ function checkUsername() {
        return;
     }
     $.ajax({
-        url: "admin/controller.php?check-username="+username,
+        url: "admin/engine.php?check-username="+username,
         method: "GET",
         success: function(response) {
             var object = JSON.parse(response);
@@ -140,7 +140,7 @@ function checkEmail() {
        return;
     }
     $.ajax({
-        url: "admin/controller.php?check-email="+email,
+        url: "admin/engine.php?check-email="+email,
         method: "GET",
         success: function(response) { 
             var object = JSON.parse(response);
@@ -187,7 +187,7 @@ function registerAccount(){
     if($('#reg-username').hasClass('ok') && $('#reg-email').hasClass('ok') && $('.pwd').hasClass('ok'))
         {
            $.ajax({
-                    url: "admin/controller.php",
+                    url: "admin/engine.php",
                     data: {create_author : 1,
                            username : $('#reg-username').val(),
                            password : $('#reg-password').val(),
@@ -210,7 +210,7 @@ function registerAccount(){
     
 function Login(){
     $.ajax({
-            url: "admin/controller.php",
+            url: "admin/engine.php",
             data: { login : 1,
                     username : $('#login-username').val(),
                     password : $('#login-password').val()},

@@ -80,7 +80,7 @@
            }
 
             $.ajax({
-                url: 'admin/controller.php',
+                url: 'admin/engine.php',
                 method : "POST",
                 data: { create_note : 1,
                         text : text },
@@ -103,10 +103,10 @@
             // undefined - someone loaded the page, or clear search button was pressed. search - search button was pressed.
             switch(task){
                 case undefined :
-                    url = 'admin/controller.php?list-notes';
+                    url = 'admin/engine.php?list-notes';
                     break;
                 case 'search' :
-                    url = 'admin/controller.php?'+$('input[name=search-by]:checked', '#search-form').val()+'='+$('#form-search-term').val();
+                    url = 'admin/engine.php?'+$('input[name=search-by]:checked', '#search-form').val()+'='+$('#form-search-term').val();
                     if($('#form-search-term').val().length<2) return false;
                     break;
             }
@@ -145,7 +145,7 @@
         
         function Logout(){
             $.ajax({
-                url: "admin/controller.php?logout",
+                url: "admin/engine.php?logout",
                 method: "GET",
                 success: function(response) {
                     var object = JSON.parse(response);
