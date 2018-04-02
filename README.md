@@ -14,5 +14,8 @@ Status codes :
 + 2 - Email is already in use.
 + 3 - An error during account creation occured.
 + 4 - Login failed.
-+ 5 - An error during note creation occured.
-+ 6 - An error while attempting to log out occured.
++ 5 - Unauthorized attempt to create a note.
++ 6 - An error during note creation occured.
++ 7 - No results found.
++ 8 - User is not logged in.
++ 9 - An error while attempting to log out occured.
