@@ -117,9 +117,8 @@ function checkUsername() {
        return;
     }
     $.ajax({
-        url: "admin/controller.php",
-        data: {username : username, task : 'check-username'},
-        method: "POST",
+        url: "admin/controller.php?check-username="+username,
+        method: "GET",
         success: function(response) {
             var object = JSON.parse(response);
             if(object.status_code != 0) {
@@ -141,10 +140,9 @@ function checkEmail() {
        return;
     }
     $.ajax({
-        url: "admin/controller.php",
-        data: {email : email, task : 'check-email'},
-        method: "POST",
-        success: function(response) {
+        url: "admin/controller.php?check-email="+email,
+        method: "GET",
+        success: function(response) { 
             var object = JSON.parse(response);
             if(object.status_code != 0) {
                 $('#reg-email').removeClass('ok').addClass('error');
@@ -190,10 +188,10 @@ function registerAccount(){
         {
            $.ajax({
                     url: "admin/controller.php",
-                    data: {username : $('#reg-username').val(),
+                    data: {create_author : 1,
+                           username : $('#reg-username').val(),
                            password : $('#reg-password').val(),
-                           email : $('#reg-email').val(),
-                           task : 'create-author'},
+                           email : $('#reg-email').val()},
                     method: "POST",
                     success: function(response) {
                         var object = JSON.parse(response);
@@ -213,9 +211,9 @@ function registerAccount(){
 function Login(){
     $.ajax({
             url: "admin/controller.php",
-            data: {username : $('#login-username').val(),
-                    password : $('#login-password').val(),
-                    task : 'login-author'},
+            data: { login : 1,
+                    username : $('#login-username').val(),
+                    password : $('#login-password').val()},
             method: "POST",
             success: function(response) {
                 var object = JSON.parse(response);

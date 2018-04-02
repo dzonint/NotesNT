@@ -78,14 +78,12 @@
             if(text.length<2){
                 return false; 
            }
-            
+
             $.ajax({
                 url: 'admin/controller.php',
                 method : "POST",
-                data: { 
-                    'text' : text,
-                    'task' : 'create-note'
-                },
+                data: { create_note : 1,
+                        text : text },
                 success: function(response) {
                         var object = JSON.parse(response);
                         if(object.status_code != 0)
@@ -100,26 +98,30 @@
           
         function getNotes(task){ 
             var data;
+            var url;
             
             // undefined - someone loaded the page, or clear search button was pressed. search - search button was pressed.
             switch(task){
                 case undefined :
-                    data = { task : 'list-notes' };
+                    url = 'admin/controller.php?list-notes';
                     break;
                 case 'search' :
-                    data = { task : $('input[name=search-by]:checked', '#search-form').val(), content : $('#form-search-term').val() }
-                    if(data.content.length<2) return false;
+                    url = 'admin/controller.php?'+$('input[name=search-by]:checked', '#search-form').val()+'='+$('#form-search-term').val();
+                    if($('#form-search-term').val().length<2) return false;
                     break;
             }
-            
             $.ajax({
-                url: 'admin/controller.php',
-                method: "POST",
+                url: url,
+                method: "GET",
                 data: data,
-                success: function(response){
+                success: function(response){ 
                     $("#notes").fadeOut;
                     $("#notes").html("");
                     var object = JSON.parse(response);
+                    if(object.hasOwnProperty("status_code")){
+                        alert(object.status_message);
+                        return;
+                    }
                     // Each object contains username, postdate and a note.
                     $.each(object, function(key, value){
                         $("#notes").append(
@@ -143,14 +145,12 @@
         
         function Logout(){
             $.ajax({
-                url: "admin/controller.php",
-                data: { task : 'logout' },
-                method: "POST",
+                url: "admin/controller.php?logout",
+                method: "GET",
                 success: function(response) {
                     var object = JSON.parse(response);
                     if(object.status_code != 0)
                         alert(object.status_message);
-                    else
                         window.location.href = "index.php";
                 }
                 });
