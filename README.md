@@ -1,5 +1,6 @@
 # NotesNT
 
+## About
 NotesNT is a simple online note storage created for REST project assignment - it works by sending AJAX requests from pages while behaving according to the incoming responses.
 
 It contains 2 pages :
@@ -20,5 +21,6 @@ Status codes :
 + 8 - User is not logged in.
 + 9 - An error while attempting to log out occured.
 
+## Images
 <img src="https://dzonint.github.io/img/portfolio/notesnt_1.png" width="300"></img>
 <img src="https://dzonint.github.io/img/portfolio/notesnt_2.png" width="300"></img>
