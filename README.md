@@ -22,5 +22,6 @@ Status codes :
 + 9 - An error while attempting to log out occured.
 
 ## Images
-<img src="https://dzonint.github.io/img/portfolio/notesnt_1.png" width="300"></img>
-<img src="https://dzonint.github.io/img/portfolio/notesnt_2.png" width="300"></img>
+<img src="https://dzonint.github.io/img/portfolio/notesnt_1.png" width="250"></img>
+<img src="https://dzonint.github.io/img/portfolio/notesnt_2.png" width="250"></img>
+<img src="https://dzonint.github.io/img/portfolio/notesnt_3.png" width="250"></img>
