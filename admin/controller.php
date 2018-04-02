@@ -84,7 +84,7 @@
     if(isset($_POST['create_note']))
     {
         if(!isset($_SESSION['logged_in'])){
-            $response=array('status_code' => 5, 'status_message' => 'Unauthorized attempt to create a note.');
+            $response=array('status_code' => 5, 'status_message' => 'Unauthorized.');
             echo json_encode($response);
             return;
         }
@@ -108,6 +108,12 @@
     // List all notes from database - AJAX call from function getNotes. (row 65 - notes.php)
     if(isset($_GET['list-notes']))
     {
+        if(!isset($_SESSION['logged_in'])){
+            $response=array('status_code' => 5, 'status_message' => 'Unauthorized.');
+            echo json_encode($response);
+            return;
+        }
+        
         $query = "SELECT authors.username, notes.postdate, notes.note 
                   FROM notes INNER JOIN authors ON authors.authorid = notes.authorid
                   ORDER BY notes.postdate DESC";
@@ -125,6 +131,12 @@
     // Search notes by username - AJAX call from function getNotes when function gets called by search button press and radio 'Search by author name' is selected. (row 65 - notes.php)
     if(isset($_GET['search-by-name']))
     {
+        if(!isset($_SESSION['logged_in'])){
+            $response=array('status_code' => 5, 'status_message' => 'Unauthorized.');
+            echo json_encode($response);
+            return;
+        }
+        
         $content = mysqli_real_escape_string($conn, $_GET['search-by-name']);
         
         $query = "SELECT authors.username, notes.postdate, notes.note 
@@ -146,6 +158,12 @@
     // Search notes by content - AJAX call from function getNotes when function gets called by search button press and radio 'Search by post content' is selected. (row 65 - notes.php)
     if(isset($_GET["search-by-content"]))
     {
+        if(!isset($_SESSION['logged_in'])){
+            $response=array('status_code' => 5, 'status_message' => 'Unauthorized.');
+            echo json_encode($response);
+            return;
+        }
+        
         $content = mysqli_real_escape_string($conn, $_GET["search-by-content"]);
         
         $query = "SELECT authors.username, notes.postdate, notes.note 
